@@ -1,22 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-        Shape shape1 = ShapeFactory.getShape(ShapeFactory.TYPE_CIRCLE);
-        Shape shape2 = ShapeFactory.getShape(ShapeFactory.TYPE_CIRCLE);
-        Shape shape3 = ShapeFactory.getShape(ShapeFactory.TYPE_CIRCLE);
-        Shape shape4 = ShapeFactory.getShape(ShapeFactory.TYPE_SQUARE);
-        Shape shape5 = ShapeFactory.getShape(ShapeFactory.TYPE_SQUARE);
-        Shape shape6 = ShapeFactory.getShape(ShapeFactory.TYPE_SQUARE);
-        Shape shape7 = ShapeFactory.getShape(ShapeFactory.TYPE_RECTANGLE);
-        Shape shape8 = ShapeFactory.getShape(ShapeFactory.TYPE_RECTANGLE);
-        Shape shape9 = ShapeFactory.getShape(ShapeFactory.TYPE_RECTANGLE);
+        // Test the factory with various shape creations
+        Shape shape1 = ShapeFactory.getShape(ShapeFactory.CIRCLE_TYPE);
+        Shape shape2 = ShapeFactory.getShape(ShapeFactory.SQUARE_TYPE);
+        Shape shape3 = ShapeFactory.getShape(ShapeFactory.RECTANGLE_TYPE);
+        Shape shape4 = ShapeFactory.getShape(ShapeFactory.CIRCLE_TYPE);
+        Shape shape5 = ShapeFactory.getShape(ShapeFactory.SQUARE_TYPE);
 
-        shape1.draw();
-        shape2.draw();
-//        shape3.draw();
-        shape4.draw();
-        shape5.draw();
-//        shape6.draw();
-        shape7.draw();
-        shape8.draw();
+        // These should fail due to limits
+        Shape shape6 = ShapeFactory.getShape(ShapeFactory.RECTANGLE_TYPE); // 2nd Rectangle
+        Shape shape7 = ShapeFactory.getShape(ShapeFactory.CIRCLE_TYPE);     // 3rd Circle
+
+        // Draw all successfully created shapes
+        if (shape1 != null) shape1.draw();
+        if (shape2 != null) shape2.draw();
+        if (shape3 != null) shape3.draw();
+        if (shape4 != null) shape4.draw();
+        if (shape5 != null) shape5.draw();
     }
 }
